@@ -1,7 +1,8 @@
 #include <stdlib.h>
 #include <gtk/gtk.h>
 
-const char *pszLorem = "@Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id malesuada felis. Suspendisse egestas nulla dui, quis sollicitudin odio porta eget. @Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In bibendum risus vitae eleifend accumsan. Cras id elit congue, gravida velit at, rhoncus magna. Aliquam quis dolor dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.";
+const char *pszLorem = "@Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id malesuada felis. Suspendisse egestas nulla dui, quis sollicitudin odio porta egetö. @Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In bibendum risus vitae eleifend accumsan. Cras id elit congue, gravida velit at, rhoncus magna. Aliquam quis dolor dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.";
+    // egetö is 5 chars, but 6 bytes of UTF-8.
 
 PangoLayout     *Pango;
 
@@ -41,7 +42,7 @@ void init_drawingArea (GtkWidget *pWidget)
     pango_attr_list_insert (attList, attr);
 
     attr = pango_attr_shape_new_with_data(&r, &r, pImg, NULL, NULL);
-    attr->start_index = 152; attr->end_index = 153;
+    attr->start_index = 153; attr->end_index = 154;
     pango_attr_list_insert (attList, attr);
 
     pango_layout_set_attributes (Pango, attList);
